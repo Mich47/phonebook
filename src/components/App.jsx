@@ -24,7 +24,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <BrowserRouter basename="/goit-react-hw-08-phonebook">
+    <BrowserRouter basename="/phonebook">
       <SharedLayout>
         <Suspense fallback="">
           <Routes>
