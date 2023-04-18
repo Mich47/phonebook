@@ -12,6 +12,8 @@ const NewContact = lazy(() => import('pages/Contacts/NewContact'));
 const Login = lazy(() => import('pages/Login/Login'));
 const Register = lazy(() => import('pages/Register/Register'));
 const Profile = lazy(() => import('pages/Profile/Profile'));
+const Verify = lazy(() => import('pages/Verify/Verify'));
+const VerifyWithToken = lazy(() => import('pages/Verify/VerifyWithToken'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,6 +36,11 @@ export const App = () => {
                 <Route index element={<Login />} />
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
+                <Route path="verify" element={<Verify />} />
+                <Route
+                  path="verify/:verificationToken"
+                  element={<VerifyWithToken />}
+                />
               </Route>
               <Route path="" element={<PrivateRoute />}>
                 <Route path="contacts" element={<Contacts />} />
