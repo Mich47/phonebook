@@ -26,12 +26,17 @@ export default function Register() {
       password: data.get('password'),
     };
     try {
-      await dispatch(signupUser(credentials)).unwrap();
-    } catch (errors) {
-      toast.error('User creation error');
-    }
+      const response = await dispatch(signupUser(credentials)).unwrap();
 
-    event.target.reset();
+      console.log('response ', response);
+      event.target.reset();
+    } catch (errors) {
+      toast.error(`User creation error`);
+
+      if (errors) {
+        toast.error(errors);
+      }
+    }
   };
 
   return (
