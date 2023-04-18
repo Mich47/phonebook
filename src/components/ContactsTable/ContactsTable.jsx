@@ -88,7 +88,7 @@ export const ContactsTable = () => {
                     return (
                       //Render rows
                       <ContactsTableRow
-                        key={row.id}
+                        key={row._id}
                         columns={columns}
                         row={row}
                       />

@@ -21,7 +21,7 @@ export const ContactsTableRow = ({ columns, row }) => {
 
   return (
     <>
-      <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+      <TableRow hover role="checkbox" tabIndex={-1} key={row._id}>
         {columns.map(column => {
           const value = row[column.id];
           return (
@@ -61,7 +61,7 @@ export const ContactsTableRow = ({ columns, row }) => {
       {isDeleteModalOpen &&
         ReactDOM.createPortal(
           <ModalDeleteContact
-            id={row.id}
+            id={row._id}
             open={isDeleteModalOpen}
             setOpen={setIsDeleteModalOpen}
           />,
@@ -71,7 +71,7 @@ export const ContactsTableRow = ({ columns, row }) => {
       {isEditModalOpen &&
         ReactDOM.createPortal(
           <ModalEditContact
-            id={row.id}
+            id={row._id}
             open={isEditModalOpen}
             setOpen={setIsEditModalOpen}
           />,

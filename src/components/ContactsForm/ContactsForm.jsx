@@ -45,7 +45,7 @@ export const ContactForm = ({ editedId }) => {
     //Інакше оновлює, або додає новий контакт
     try {
       editedId
-        ? await dispatch(patchContact({ id: editedId, name, number })).unwrap()
+        ? await dispatch(patchContact({ _id: editedId, name, number })).unwrap()
         : await dispatch(postContact({ name, number })).unwrap();
     } catch (error) {
       toast.error('Error saving contact');

@@ -36,7 +36,7 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         // state.isLoading = false;
         state.error = null;
-        const index = state.items.findIndex(({ id }) => id === payload.id);
+        const index = state.items.findIndex(({ _id }) => _id === payload._id);
         state.items.splice(index, 1);
       })
       .addCase(deleteContact.rejected, handleRejected)
@@ -50,7 +50,7 @@ const contactsSlice = createSlice({
       .addCase(patchContact.fulfilled, (state, { payload }) => {
         state.status = STATUS.success;
         state.error = null;
-        const index = state.items.findIndex(({ id }) => id === payload.id);
+        const index = state.items.findIndex(({ _id }) => _id === payload._id);
         state.items.splice(index, 1, payload);
       })
       .addCase(patchContact.rejected, handleRejected);
